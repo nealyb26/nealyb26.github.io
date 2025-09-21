@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name: projects, skills, and contact info." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0d10; --card:#11161c; --muted:#9fb0c3; --text:#eaf2f9; --accent:#6bb3ff; --ring:#284b76; }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:960px;margin:0 auto;padding:32px}
+    header{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+    .avatar{width:88px;height:88px;border-radius:50%;background:#222;flex:0 0 auto;box-shadow:0 0 0 3px var(--ring)}
+    h1{margin:0;font-size:clamp(28px,4vw,40px);line-height:1.1}
+    .subtitle{color:var(--muted);margin-top:4px}
+    nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 14px;border:1px solid #2a3847;border-radius:10px;background:#0f141a}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
+    .card{background:var(--card);border:1px solid #1b2430;border-radius:16px;padding:18px}
+    .card h3{margin:0 0 8px 0;font-size:18px}
+    .tag{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid #2a3847;border-radius:999px;color:var(--muted);margin-right:6px;margin-top:6px}
+    footer{margin-top:36px;color:var(--muted);font-size:14px}
+    .section-title{margin-top:28px;margin-bottom:8px;font-size:20px}
+    .list{margin:0;padding-left:18px}
+    .sr{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="avatar" src="https://via.placeholder.com/176" alt="Your headshot" />
+      <div>
+        <h1>Your Name</h1>
+        <div class="subtitle">CS student • Backend & embedded • I build reliable, minimal systems</div>
+      </div>
+      <nav>
+        <a class="btn" href="mailto:you@example.com">Email</a>
+        <a class="btn" href="https://github.com/your-username">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-handle/">LinkedIn</a>
+        <a class="btn" href="resume.pdf">Résumé</a>
+      </nav>
+    </header>
+
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Flight Tracker 3D</h3>
+        <p>Vite + Flask + Three.js app that visualizes live flights; deployed on Cloud Run.</p>
+        <div>
+          <span class="tag">Python</span><span class="tag">Three.js</span><span class="tag">Flask</span>
+        </div>
+        <p><a href="https://github.com/your-username/flight-tracker">Code</a> · <a href="#">Live</a></p>
+      </article>
+      <article class="card">
+        <h3>TouchDesigner Flow Viz</h3>
+        <p>Lightweight 2D airflow lines around silhouettes; OpenCV contours → projector mapping.</p>
+        <div>
+          <span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">TD</span>
+        </div>
+        <p><a href="#">Write-up</a></p>
+      </article>
+      <article class="card">
+        <h3>STM32 Flight States</h3>
+        <p>Finite-state detection using IMU streams; tested on desktop harness + Nucleo board.</p>
+        <div>
+          <span class="tag">C</span><span class="tag">RTOS</span><span class="tag">Unit Tests</span>
+        </div>
+        <p><a href="#">Code</a></p>
+      </article>
+    </div>
+
+    <h2 class="section-title">About</h2>
+    <p>I’m a CS student focused on embedded systems and dependable backend tooling. I like turning messy sensors and data into clean interfaces and visuals.</p>
+
+    <h2 class="section-title">Skills</h2>
+    <ul class="list">
+      <li>Languages: Python, C/C++, JavaScript</li>
+      <li>Tools: Git, Linux, Docker, STM32CubeIDE</li>
+      <li>Data/ML: NumPy, Pandas, scikit-learn</li>
+    </ul>
+
+    <footer>
+      © <span id="y"></span> Your Name • Built with plain HTML/CSS on GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
