@@ -1,0 +1,32 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#11161c"/>
+  <rect x="20" y="20" width="260" height="160" fill="none" stroke="#6bb3ff" stroke-width="2" rx="8"/>
+  <!-- STM32 board representation -->
+  <rect x="80" y="80" width="140" height="80" fill="#2a3847" stroke="#9fb0c3" stroke-width="1" rx="4"/>
+  <!-- Pins -->
+  <rect x="70" y="90" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="70" y="100" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="70" y="110" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="70" y="120" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="70" y="130" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="70" y="140" width="10" height="4" fill="#9fb0c3"/>
+  
+  <rect x="220" y="90" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="220" y="100" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="220" y="110" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="220" y="120" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="220" y="130" width="10" height="4" fill="#9fb0c3"/>
+  <rect x="220" y="140" width="10" height="4" fill="#9fb0c3"/>
+  
+  <!-- MCU chip -->
+  <rect x="130" y="110" width="40" height="30" fill="#1b2430" stroke="#6bb3ff" stroke-width="1"/>
+  <text x="150" y="128" text-anchor="middle" fill="#6bb3ff" font-family="Inter, sans-serif" font-size="8">STM32</text>
+  
+  <!-- State indicators -->
+  <circle cx="100" cy="95" r="3" fill="#6bb3ff"/>
+  <circle cx="110" cy="95" r="3" fill="#9fb0c3"/>
+  <circle cx="120" cy="95" r="3" fill="#9fb0c3"/>
+  
+  <!-- Title -->
+  <text x="150" y="45" text-anchor="middle" fill="#eaf2f9" font-family="Inter, sans-serif" font-size="14" font-weight="600">STM32 Flight States</text>
+</svg>

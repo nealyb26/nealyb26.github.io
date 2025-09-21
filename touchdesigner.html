@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TouchDesigner Flow Viz - Neal's Portfolio</title>
+  <meta name="description" content="TouchDesigner Flow Viz project - 2D airflow visualization using OpenCV and projector mapping" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back-btn">
+      ← Back to Portfolio
+    </a>
+
+    <div class="project-header">
+      <h1 class="project-title">TouchDesigner Flow Viz</h1>
+      <div class="project-meta">Interactive Airflow Visualization Installation</div>
+      <div class="project-links">
+        <a class="btn" href="#">Project Write-up</a>
+        <a class="btn" href="#">Video Demo</a>
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Installation Photo</div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Flow Visualization</div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Behind the Scenes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>TouchDesigner Flow Viz is an interactive installation that creates real-time airflow visualizations around human silhouettes. Using computer vision and projector mapping, the system generates beautiful 2D flow lines that respond dynamically to people's movements and positions.</p>
+      
+      <p>The project explores the intersection of computational fluid dynamics simulation and interactive art, creating an immersive experience where participants can see how their presence affects virtual airflow patterns projected onto the ground around them.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technical Implementation</h2>
+      <p>The system uses OpenCV for real-time computer vision processing to detect and track human silhouettes from overhead camera feeds. Contour detection algorithms identify the boundaries of people in the space, which are then used as obstacles in a simplified fluid dynamics simulation.</p>
+      
+      <p>TouchDesigner serves as the primary platform for visual generation and projection mapping. The software receives silhouette data from the Python vision processing pipeline and generates smooth, flowing particle systems that simulate air currents deflecting around detected obstacles.</p>
+      
+      <p>Projector calibration and mapping ensure that the visual effects align precisely with physical space, creating the illusion that airflow lines are drawn directly on the floor and respond naturally to people's movements.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Key Features</h2>
+      <ul class="list">
+        <li>Real-time silhouette detection and tracking</li>
+        <li>Fluid dynamics simulation with obstacle avoidance</li>
+        <li>Smooth particle system visualization</li>
+        <li>Precise projector mapping and calibration</li>
+        <li>Multi-person tracking and interaction</li>
+        <li>Responsive visual feedback with minimal latency</li>
+        <li>Scalable installation design for different venues</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Creative Process</h2>
+      <p>The project began with explorations of how to make invisible forces visible in physical space. Wind and airflow are fundamental to our environment but remain largely unseen. By creating a digital representation that responds to human presence, the installation makes these invisible dynamics tangible and interactive.</p>
+      
+      <p>The aesthetic draws inspiration from scientific flow visualization techniques used in wind tunnels and computational fluid dynamics research, translating these analytical tools into an engaging artistic medium that anyone can experience and understand intuitively.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technologies Used</h2>
+      <div>
+        <span class="tag">TouchDesigner</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">Python</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Projector Mapping</span>
+        <span class="tag">Particle Systems</span>
+        <span class="tag">Real-time Processing</span>
+        <span class="tag">Interactive Installation</span>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Neal Bagai • Built with plain HTML/CSS on GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

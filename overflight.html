@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Overflight - Neal's Portfolio</title>
+  <meta name="description" content="Overflight project - Live flight visualization app using Vite, Flask, and Three.js" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back-btn">
+      ← Back to Portfolio
+    </a>
+
+    <div class="project-header">
+      <h1 class="project-title">Overflight</h1>
+      <div class="project-meta">Live Flight Visualization App</div>
+      <div class="project-links">
+        <a class="btn" href="https://github.com/your-username/flight-tracker">View Code</a>
+        <a class="btn" href="#">Live Demo</a>
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Screenshot 1</div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Screenshot 2</div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Screenshot 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Overflight is a real-time flight tracking application that visualizes live aircraft data in an interactive 3D environment. Built with modern web technologies, it combines a Flask backend for data processing with a Three.js frontend for immersive visualization.</p>
+      
+      <p>The application fetches live flight data from aviation APIs and renders aircraft positions, flight paths, and airport information in a globe-based 3D interface. Users can explore flights worldwide, view detailed flight information, and track aircraft movements in real-time.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technical Implementation</h2>
+      <p>The backend is built with Flask and handles API integrations with flight data providers, data processing, and serving the frontend application. The data pipeline processes thousands of flight updates per minute, filtering and optimizing the data for efficient frontend consumption.</p>
+      
+      <p>The frontend leverages Vite for fast development builds and Three.js for WebGL-based 3D rendering. Aircraft are represented as 3D models positioned accurately on a textured Earth sphere, with smooth interpolation between position updates to create fluid movement animations.</p>
+      
+      <p>Deployment is handled through Google Cloud Run, providing automatic scaling and efficient resource utilization. The containerized application can handle traffic spikes during peak flight hours while maintaining low latency for real-time updates.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Key Features</h2>
+      <ul class="list">
+        <li>Real-time flight tracking with sub-minute update intervals</li>
+        <li>Interactive 3D globe with accurate aircraft positioning</li>
+        <li>Flight path visualization with historical trajectory data</li>
+        <li>Detailed aircraft information panels</li>
+        <li>Airport markers with traffic density indicators</li>
+        <li>Responsive design optimized for desktop and mobile</li>
+        <li>Efficient data caching and compression for performance</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Technologies Used</h2>
+      <div>
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Three.js</span>
+        <span class="tag">Vite</span>
+        <span class="tag">WebGL</span>
+        <span class="tag">Google Cloud Run</span>
+        <span class="tag">Docker</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Neal Bagai • Built with plain HTML/CSS on GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

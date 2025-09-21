@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>STM32 Flight States - Neal's Portfolio</title>
+  <meta name="description" content="STM32 Flight States project - Finite-state machine for flight detection using IMU sensors" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html" class="back-btn">
+      ← Back to Portfolio
+    </a>
+
+    <div class="project-header">
+      <h1 class="project-title">STM32 Flight States</h1>
+      <div class="project-meta">Embedded Flight Phase Detection System</div>
+      <div class="project-links">
+        <a class="btn" href="#">View Code</a>
+        <a class="btn" href="#">Technical Report</a>
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Hardware Setup</div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Test Harness</div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-placeholder">Data Visualization</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>STM32 Flight States is an embedded system that uses inertial measurement unit (IMU) data to automatically detect and classify different phases of flight in real-time. The system implements a robust finite-state machine to identify launch, boost, coast, apogee, and recovery phases for small aircraft and rockets.</p>
+      
+      <p>Developed for applications in model rocketry and small unmanned aircraft, the system provides critical flight phase information that can be used for automated recovery system deployment, data logging, and safety monitoring.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technical Implementation</h2>
+      <p>The core system runs on an STM32 Nucleo board with a high-precision 9-axis IMU providing accelerometer, gyroscope, and magnetometer data at 100Hz. A Kalman filter processes the raw sensor data to estimate vehicle orientation and acceleration, filtering out noise and sensor drift.</p>
+      
+      <p>The finite-state machine analyzes filtered sensor data using configurable thresholds and timing windows to detect state transitions. Each flight phase has specific acceleration and rotation rate signatures that the algorithm recognizes, with hysteresis built in to prevent false state changes due to turbulence or sensor noise.</p>
+      
+      <p>FreeRTOS provides real-time scheduling for sensor reading, data processing, and state machine execution, ensuring deterministic timing critical for flight safety applications. The system includes comprehensive unit tests and desktop simulation capabilities for validation without flight hardware.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Key Features</h2>
+      <ul class="list">
+        <li>Real-time flight phase detection with sub-100ms latency</li>
+        <li>Robust finite-state machine with noise immunity</li>
+        <li>Kalman filtering for sensor fusion and noise reduction</li>
+        <li>Configurable thresholds for different vehicle types</li>
+        <li>Desktop simulation environment for testing</li>
+        <li>Comprehensive unit test suite</li>
+        <li>Low power consumption for extended flight operations</li>
+        <li>Serial output for data logging and telemetry</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Testing and Validation</h2>
+      <p>The system was validated using a desktop test harness that simulates various flight profiles through controlled motion patterns. This allowed for repeatable testing of edge cases and boundary conditions without requiring actual flight tests.</p>
+      
+      <p>Unit tests cover individual components including sensor drivers, filtering algorithms, and state machine logic. Integration tests verify end-to-end functionality using recorded flight data from previous missions, ensuring the system correctly identifies flight phases in realistic scenarios.</p>
+      
+      <p>Field testing on a Nucleo board confirmed the system's reliability and accuracy, with successful state detection across multiple simulated flight profiles and environmental conditions.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Applications</h2>
+      <p>The flight state detection system has applications in model rocketry for automated parachute deployment, small UAV flight monitoring, and educational aerospace projects. The modular design allows easy integration into existing flight systems and adaptation for different vehicle characteristics.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technologies Used</h2>
+      <div>
+        <span class="tag">C</span>
+        <span class="tag">STM32</span>
+        <span class="tag">FreeRTOS</span>
+        <span class="tag">IMU Sensors</span>
+        <span class="tag">Kalman Filtering</span>
+        <span class="tag">Finite State Machines</span>
+        <span class="tag">Unit Testing</span>
+        <span class="tag">Embedded Systems</span>
+        <span class="tag">STM32CubeIDE</span>
+      </div>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Neal Bagai • Built with plain HTML/CSS on GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

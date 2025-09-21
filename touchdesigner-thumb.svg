@@ -1,0 +1,18 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#11161c"/>
+  <rect x="20" y="20" width="260" height="160" fill="none" stroke="#6bb3ff" stroke-width="2" rx="8"/>
+  <!-- Flow lines around a silhouette -->
+  <ellipse cx="150" cy="120" rx="25" ry="40" fill="#2a3847"/>
+  <!-- Flow lines -->
+  <path d="M80 80 Q120 85 160 80 Q200 85 240 80" stroke="#6bb3ff" stroke-width="2" fill="none"/>
+  <path d="M80 100 Q110 95 140 100" stroke="#6bb3ff" stroke-width="2" fill="none"/>
+  <path d="M180 100 Q210 95 240 100" stroke="#6bb3ff" stroke-width="2" fill="none"/>
+  <path d="M80 140 Q110 145 140 140" stroke="#6bb3ff" stroke-width="2" fill="none"/>
+  <path d="M180 140 Q210 145 240 140" stroke="#6bb3ff" stroke-width="2" fill="none"/>
+  <path d="M80 160 Q120 155 160 160 Q200 155 240 160" stroke="#6bb3ff" stroke-width="2" fill="none"/>
+  <!-- Camera/projection indicator -->
+  <rect x="40" y="50" width="12" height="8" fill="#9fb0c3"/>
+  <path d="M52 54 L70 54" stroke="#9fb0c3" stroke-width="2"/>
+  <!-- Title -->
+  <text x="150" y="45" text-anchor="middle" fill="#eaf2f9" font-family="Inter, sans-serif" font-size="14" font-weight="600">TouchDesigner Flow</text>
+</svg>

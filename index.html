@@ -2,69 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Portfolio of Your Name: projects, skills, and contact info." />
+  <title>Neal's Portfolio</title>
+  <meta name="description" content="Portfolio : projects, skills, and contact info." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg:#0b0d10; --card:#11161c; --muted:#9fb0c3; --text:#eaf2f9; --accent:#6bb3ff; --ring:#284b76; }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:960px;margin:0 auto;padding:32px}
-    header{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-    .avatar{width:88px;height:88px;border-radius:50%;background:#222;flex:0 0 auto;box-shadow:0 0 0 3px var(--ring)}
-    h1{margin:0;font-size:clamp(28px,4vw,40px);line-height:1.1}
-    .subtitle{color:var(--muted);margin-top:4px}
-    nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 14px;border:1px solid #2a3847;border-radius:10px;background:#0f141a}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
-    .card{background:var(--card);border:1px solid #1b2430;border-radius:16px;padding:18px}
-    .card h3{margin:0 0 8px 0;font-size:18px}
-    .tag{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid #2a3847;border-radius:999px;color:var(--muted);margin-right:6px;margin-top:6px}
-    footer{margin-top:36px;color:var(--muted);font-size:14px}
-    .section-title{margin-top:28px;margin-bottom:8px;font-size:20px}
-    .list{margin:0;padding-left:18px}
-    .sr{position:absolute;left:-9999px}
-  </style>
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
   <div class="wrap">
     <header>
-      <img class="avatar" src="https://via.placeholder.com/176" alt="Your headshot" />
-      <div>
-        <h1>Your Name</h1>
-        <div class="subtitle">CS student • Backend & embedded • I build reliable, minimal systems</div>
+      <div class="top-nav">
+        <div class="nav-controls">
+          <button class="menu-btn" id="menuBtn">
+            <span class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">☀️</span>
+          </button>
+        </div>
+        <nav class="main-nav">
+          <a class="btn" href="mailto:neal.bagai@vanderbilt.edu">Email</a>
+          <a class="btn" href="https://github.com/nealyb26">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/neal-b-090866226/">LinkedIn</a>
+          <a class="btn" href="NealBagaiResume.pdf">Resume</a>
+        </nav>
       </div>
-      <nav>
-        <a class="btn" href="mailto:you@example.com">Email</a>
-        <a class="btn" href="https://github.com/your-username">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/your-handle/">LinkedIn</a>
-        <a class="btn" href="resume.pdf">Résumé</a>
-      </nav>
+      
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="#" onclick="scrollToSection('home')">Home</a>
+        <a href="#" onclick="scrollToSection('about')">About</a>
+        <a href="#" onclick="scrollToSection('projects')">Projects</a>
+        <a href="#" onclick="scrollToSection('skills')">Skills</a>
+      </div>
+
+      <div class="profile-section">
+        <img class="avatar" src="casual_headshot.jpg" alt="Your headshot" />
+        <div class="profile-info">
+          <h1>Neal Bagai</h1>
+          <div class="subtitle">CS Student • Interested in Flight Systems</div>
+        </div>
+      </div>
     </header>
 
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title" id="about">About</h2>
+    <p>I'm a CS student focused on embedded systems and dependable backend tooling. I like turning messy sensors and data into clean interfaces and visuals.</p>
+
+    <h2 class="section-title" id="projects">Projects</h2>
     <div class="grid">
-      <article class="card">
-        <h3>Flight Tracker 3D</h3>
+      <article class="card" onclick="window.location.href='overflight.html'">
+        <img class="project-thumb" src="overflight-thumb.svg" alt="Overflight project thumbnail" />
+        <h3>Overflight</h3>
         <p>Vite + Flask + Three.js app that visualizes live flights; deployed on Cloud Run.</p>
         <div>
           <span class="tag">Python</span><span class="tag">Three.js</span><span class="tag">Flask</span>
         </div>
         <p><a href="https://github.com/your-username/flight-tracker">Code</a> · <a href="#">Live</a></p>
       </article>
-      <article class="card">
+      <article class="card" onclick="window.location.href='touchdesigner.html'">
+        <img class="project-thumb" src="touchdesigner-thumb.svg" alt="TouchDesigner Flow Viz project thumbnail" />
         <h3>TouchDesigner Flow Viz</h3>
         <p>Lightweight 2D airflow lines around silhouettes; OpenCV contours → projector mapping.</p>
         <div>
           <span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">TD</span>
         </div>
-        <p><a href="#">Write-up</a></p>
       </article>
-      <article class="card">
+      <article class="card" onclick="window.location.href='stm32.html'">
+        <img class="project-thumb" src="stm32-thumb.svg" alt="STM32 Flight States project thumbnail" />
         <h3>STM32 Flight States</h3>
         <p>Finite-state detection using IMU streams; tested on desktop harness + Nucleo board.</p>
         <div>
@@ -74,8 +81,6 @@
       </article>
     </div>
 
-    <h2 class="section-title">About</h2>
-    <p>I’m a CS student focused on embedded systems and dependable backend tooling. I like turning messy sensors and data into clean interfaces and visuals.</p>
 
     <h2 class="section-title">Skills</h2>
     <ul class="list">
@@ -85,9 +90,62 @@
     </ul>
 
     <footer>
-      © <span id="y"></span> Your Name • Built with plain HTML/CSS on GitHub Pages
+      © <span id="y"></span> Neal Bagai • Built with HTML/CSS on GitHub Pages
     </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Menu toggle functionality
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const hamburger = menuBtn.querySelector('.hamburger');
+    
+    menuBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+      hamburger.classList.toggle('active');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+        hamburger.classList.remove('active');
+      }
+    });
+    
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+    themeIcon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeIcon.textContent = newTheme === 'light' ? '🌙' : '☀️';
+    });
+    
+    // Smooth scroll to sections
+    function scrollToSection(sectionId) {
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // Close dropdown after clicking
+      dropdownMenu.classList.remove('show');
+      hamburger.classList.remove('active');
+    }
+  </script>
 </body>
 </html>
