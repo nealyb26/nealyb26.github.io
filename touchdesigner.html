@@ -5,37 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TouchDesigner Flow Viz - Neal's Portfolio</title>
   <meta name="description" content="TouchDesigner Flow Viz project - 2D airflow visualization using OpenCV and projector mapping" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <div class="wrap">
-    <a href="index.html" class="back-btn">
-      ← Back to Portfolio
-    </a>
+  <a href="index.html" class="back-btn back-btn-absolute">
+    ← Home
+  </a>
 
-    <div class="project-header">
-      <h1 class="project-title">TouchDesigner Flow Viz</h1>
-      <div class="project-meta">Interactive Airflow Visualization Installation</div>
-      <div class="project-links">
-        <a class="btn" href="#">Project Write-up</a>
-        <a class="btn" href="#">Video Demo</a>
-      </div>
+  <div class="project-banner">
+    <img src="img/installation.png" alt="TouchDesigner Flow Viz project banner" class="banner-image">
+    <div class="banner-overlay">
+      <h1 class="banner-title">TouchDesigner Flow Viz</h1>
+      <div class="banner-subtitle">Interactive Airflow Visualization Installation</div>
     </div>
+  </div>
 
-    <div class="carousel-container">
-      <div class="carousel">
-        <div class="carousel-item">
-          <div class="carousel-placeholder">Installation Photo</div>
-        </div>
-        <div class="carousel-item">
-          <div class="carousel-placeholder">Flow Visualization</div>
-        </div>
-        <div class="carousel-item">
-          <div class="carousel-placeholder">Behind the Scenes</div>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="project-links">
+      <a class="btn" href="#">Project Write-up</a>
+      <a class="btn" href="#">Video Demo</a>
     </div>
 
     <div class="content-section">
@@ -89,9 +77,15 @@
     </div>
 
     <footer>
-      © <span id="y"></span> Neal Bagai • Built with plain HTML/CSS on GitHub Pages
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
     </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Sync theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+  </script>
 </body>
 </html>

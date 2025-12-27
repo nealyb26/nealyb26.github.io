@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <title>Neal's Portfolio</title>
   <meta name="description" content="Portfolio : projects, skills, and contact info." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
@@ -13,48 +11,62 @@
     <header>
       <div class="top-nav">
         <div class="nav-controls">
-          <button class="menu-btn" id="menuBtn">
-            <span class="hamburger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
           <button class="theme-toggle" id="themeToggle">
             <span class="theme-icon">☀️</span>
           </button>
         </div>
-        <nav class="main-nav">
-          <a class="btn" href="mailto:neal.bagai@vanderbilt.edu">Email</a>
-          <a class="btn" href="https://github.com/nealyb26">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/neal-b-090866226/">LinkedIn</a>
-          <a class="btn" href="NealBagaiResume.pdf">Resume</a>
-        </nav>
       </div>
       
-      <div class="dropdown-menu" id="dropdownMenu">
-        <a href="#" onclick="scrollToSection('home')">Home</a>
-        <a href="#" onclick="scrollToSection('about')">About</a>
-        <a href="#" onclick="scrollToSection('projects')">Projects</a>
-        <a href="#" onclick="scrollToSection('skills')">Skills</a>
-      </div>
-
-      <div class="profile-section">
-        <img class="avatar" src="casual_headshot.jpg" alt="Your headshot" />
-        <div class="profile-info">
-          <h1>Neal Bagai</h1>
-          <div class="subtitle">CS Student • Interested in Flight Systems</div>
-        </div>
+      <div class="profile-header">
+        <h1 class="profile-name">Neal Bagai</h1>
+        <div class="subtitle">Vanderbilt University <br>School of Engineering<br> CS + DS</div>
       </div>
     </header>
 
-    <h2 class="section-title" id="about">About</h2>
-    <p>I'm a CS student focused on embedded systems and dependable backend tooling. I like turning messy sensors and data into clean interfaces and visuals.</p>
-
-    <h2 class="section-title" id="projects">Projects</h2>
+    <div class="profile-intro">
+      <div class="intro-text">
+        <h2 class="section-title" id="about">About</h2>
+        <p>I'm an undergraduate CS student focused on software integration with embedded systems, AI and autonomy on computing constrained platforms, and data analytics. I like the insights that can be driven with continuous 
+        testing and intuitive visuals.</p>
+      </div>
+      <img class="profile-photo" src="img/casual_headshot.jpg" alt="Neal Bagai headshot" />
+    </div>
+    
+    <h2 class="section-title" id="projects">Academic Projects</h2>
+    <div class="grid">
+      <article class="card" onclick="window.location.href='stm32.html'">
+        <img class="project-thumb" src="img/PES.jpg" alt="STM32 Flight States project thumbnail" />
+        <h3>VADL Flight Software</h3>
+        <p>Finite-state detection using IMU streams; tested on desktop harness + Nucleo board.</p>
+        <div>
+          <span class="tag">C</span><span class="tag">RTOS</span><span class="tag">Unit Tests</span>
+        </div>
+        <p><a href="#">Code</a></p>
+      </article>
+      <article class="card" onclick="window.location.href='stm32.html'">
+        <img class="project-thumb" src="img/stm32-thumb.svg" alt="STM32 Flight States project thumbnail" />
+        <h3>AIMC AI Inferencing Rad-Effects Research</h3>
+        <p>Finite-state detection using IMU streams; tested on desktop harness + Nucleo board.</p>
+        <div>
+          <span class="tag">C</span><span class="tag">RTOS</span><span class="tag">Unit Tests</span>
+        </div>
+        <p><a href="#">Code</a></p>
+      </article>
+      <article class="card" onclick="window.location.href='stm32.html'">
+        <img class="project-thumb" src="img/stm32-thumb.svg" alt="STM32 Flight States project thumbnail" />
+        <h3>Ancient Mortars Project</h3>
+        <p>Finite-state detection using IMU streams; tested on desktop harness + Nucleo board.</p>
+        <div>
+          <span class="tag">C</span><span class="tag">RTOS</span><span class="tag">Unit Tests</span>
+        </div>
+        <p><a href="#">Code</a></p>
+      </article>
+    </div>
+    
+    <h2 class="section-title" id="projects">Personal Projects</h2>
     <div class="grid">
       <article class="card" onclick="window.location.href='overflight.html'">
-        <img class="project-thumb" src="overflight-thumb.svg" alt="Overflight project thumbnail" />
+        <img class="project-thumb" src="img/overflight-thumb.png" alt="Overflight project thumbnail" />
         <h3>Overflight</h3>
         <p>Vite + Flask + Three.js app that visualizes live flights; deployed on Cloud Run.</p>
         <div>
@@ -63,56 +75,38 @@
         <p><a href="https://github.com/your-username/flight-tracker">Code</a> · <a href="#">Live</a></p>
       </article>
       <article class="card" onclick="window.location.href='touchdesigner.html'">
-        <img class="project-thumb" src="touchdesigner-thumb.svg" alt="TouchDesigner Flow Viz project thumbnail" />
+        <img class="project-thumb" src="img/flow.png" alt="TouchDesigner Flow Viz project thumbnail" />
         <h3>TouchDesigner Flow Viz</h3>
         <p>Lightweight 2D airflow lines around silhouettes; OpenCV contours → projector mapping.</p>
         <div>
           <span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">TD</span>
         </div>
       </article>
-      <article class="card" onclick="window.location.href='stm32.html'">
-        <img class="project-thumb" src="stm32-thumb.svg" alt="STM32 Flight States project thumbnail" />
-        <h3>STM32 Flight States</h3>
-        <p>Finite-state detection using IMU streams; tested on desktop harness + Nucleo board.</p>
-        <div>
-          <span class="tag">C</span><span class="tag">RTOS</span><span class="tag">Unit Tests</span>
-        </div>
-        <p><a href="#">Code</a></p>
-      </article>
     </div>
 
 
     <h2 class="section-title">Skills</h2>
     <ul class="list">
-      <li>Languages: Python, C/C++, JavaScript</li>
-      <li>Tools: Git, Linux, Docker, STM32CubeIDE</li>
-      <li>Data/ML: NumPy, Pandas, scikit-learn</li>
+      <li>Languages: Python, C/C++, Java, R</li>
+      <li>Tools: Linux, Docker, STM32CubeIDE</li>
+      <li>Data/ML: NumPy, Pandas, PyTorch</li>
+    </ul>
+
+    <h2 class="section-title" id="contact">Contact</h2>
+    <ul class="contact-list">
+      <li><a href="mailto:neal.bagai@vanderbilt.edu">Email</a></li>
+      <li><a href="https://github.com/nealyb26" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/neal-b-090866226/" target="_blank">LinkedIn</a></li>
+      <li><a href="NealBagaiResume.pdf" target="_blank">Resume</a></li>
+      <li><a href="https://www.youtube.com/@electricneal1694" target="_blank">YouTube</a></li>
     </ul>
 
     <footer>
-      © <span id="y"></span> Neal Bagai • Built with HTML/CSS on GitHub Pages
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
     </footer>
   </div>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    
-    // Menu toggle functionality
-    const menuBtn = document.getElementById('menuBtn');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    const hamburger = menuBtn.querySelector('.hamburger');
-    
-    menuBtn.addEventListener('click', () => {
-      dropdownMenu.classList.toggle('show');
-      hamburger.classList.toggle('active');
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!menuBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.classList.remove('show');
-        hamburger.classList.remove('active');
-      }
-    });
     
     // Theme toggle functionality
     const themeToggle = document.getElementById('themeToggle');
@@ -131,21 +125,6 @@
       localStorage.setItem('theme', newTheme);
       themeIcon.textContent = newTheme === 'light' ? '🌙' : '☀️';
     });
-    
-    // Smooth scroll to sections
-    function scrollToSection(sectionId) {
-      if (sectionId === 'home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-      // Close dropdown after clicking
-      dropdownMenu.classList.remove('show');
-      hamburger.classList.remove('active');
-    }
   </script>
 </body>
 </html>

@@ -3,44 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>STM32 Flight States - Neal's Portfolio</title>
-  <meta name="description" content="STM32 Flight States project - Finite-state machine for flight detection using IMU sensors" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>VADL Flight Software - Neal's Portfolio</title>
+  <meta name="description" content="VADL Flight Software - Finite-state machine for flight detection using IMU sensors" />
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <div class="wrap">
-    <a href="index.html" class="back-btn">
-      ← Back to Portfolio
-    </a>
+  <a href="index.html" class="back-btn back-btn-absolute">
+    ← Home
+  </a>
 
-    <div class="project-header">
-      <h1 class="project-title">STM32 Flight States</h1>
-      <div class="project-meta">Embedded Flight Phase Detection System</div>
-      <div class="project-links">
-        <a class="btn" href="#">View Code</a>
-        <a class="btn" href="#">Technical Report</a>
-      </div>
+  <div class="project-banner">
+    <img src="img/subscale.jpg" alt="VADL Flight Software banner" class="banner-image">
+    <div class="banner-overlay">
+      <h1 class="banner-title">VADL Flight Software</h1>
+      <div class="banner-subtitle">Embedded Flight Phase Detection System</div>
     </div>
+  </div>
 
-    <div class="carousel-container">
-      <div class="carousel">
-        <div class="carousel-item">
-          <div class="carousel-placeholder">Hardware Setup</div>
-        </div>
-        <div class="carousel-item">
-          <div class="carousel-placeholder">Test Harness</div>
-        </div>
-        <div class="carousel-item">
-          <div class="carousel-placeholder">Data Visualization</div>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="project-links">
+      <a class="btn" href="#">View Code</a>
+      <a class="btn" href="#">Technical Report</a>
     </div>
 
     <div class="content-section">
       <h2>Overview</h2>
-      <p>STM32 Flight States is an embedded system that uses inertial measurement unit (IMU) data to automatically detect and classify different phases of flight in real-time. The system implements a robust finite-state machine to identify launch, boost, coast, apogee, and recovery phases for small aircraft and rockets.</p>
+      <p>For the last 2 years I have been a member of the electronics team for the Vanderbilt 
+        Aerospace Design Lab. For the 2026 Student Launch Competition, I worked on the flight logic of our 
+        payload electronics system on our rocket, the Endurance. The state detection is handled by an 
+        embedded system that uses inertial measurement unit (IMU) data to detect different phases of flight in real-time. 
+        The system implements a robust finite-state machine to identify launch, boost, coast, apogee, and recovery phases.
+        These states are used to dictate action events of the launch system throughout flight, such as parachute detachment
+        and soil collection system activation. 
+      </p>
       
       <p>Developed for applications in model rocketry and small unmanned aircraft, the system provides critical flight phase information that can be used for automated recovery system deployment, data logging, and safety monitoring.</p>
     </div>
@@ -98,9 +93,15 @@
     </div>
 
     <footer>
-      © <span id="y"></span> Neal Bagai • Built with plain HTML/CSS on GitHub Pages
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
     </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Sync theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+  </script>
 </body>
 </html>
