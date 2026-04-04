@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ancient Mortars - Neal's Portfolio</title>
+  <meta name="description" content="Ancient Mortars project - deep learning classification of archaeological mortar particles using vision transformers" />
+  <link rel="icon" type="image/x-icon" href="img/logo.ico">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="back-btn back-btn-absolute">
+    ← Home
+  </a>
+
+  <div class="project-banner">
+    <img src="img/mortars.jpg" alt="Ancient Mortars project banner" class="banner-image">
+    <div class="banner-overlay">
+      <h1 class="banner-title">Ancient Mortars</h1>
+      <div class="banner-subtitle">Classification of Ancient Building Materials</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="project-links">
+      <a class="btn" href="https://github.com/vanderbilt-data-science/ancient-transformers" target="_blank" rel="noopener noreferrer">View Code</a>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>Ancient Mortars was a deep learning project that used image classification to study mortar composition from archaeological samples collected at Caesarea Maritima. The work focused on identifying fine-grained particle types from a large dataset of microscope-style particle images generated through dynamic image analysis.</p>
+
+      <p>The sample set came from a mix of historically distinct contexts at the site, including the Crusader cathedral, the Crusader fortress, the temple platform, and the Herodian wall on the northern side of the platform. Those samples captured mortar traditions associated with Roman, Jewish, Byzantine, Abbasid-Fatimid Muslim, and Crusader construction at the same ancient port city.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Approach</h2>
+      <p>The dataset contained hundreds of thousands of images per particle type, so the main challenge was not simply model selection but building a pipeline that could learn from noisy, repeated observations of the same particle as it moved through the imaging system. Previously, the team had evaluated the effectiveness of both convolutional models and transformer-based architectures; however, I was tasked with investigating the effectiveness of fine-tuning google/vit-base-patch16-224-in21k on the four high-level mortar classes.</p>
+
+      <p>That modeling choice reflected the structure of the problem: the classes were visually subtle, the image volume was large, and the useful signal lived in texture, shape, and local variation rather than in obvious object boundaries. The result was a classifier that could separate kurkar, sand, olivepress residue, and volcanic ash from the image stream with strong accuracy.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Results</h2>
+      <ul class="list">
+        <li>Fine-tuned google/vit-base-patch16-224-in21k on a four-class mortar classification task</li>
+        <li>Worked with a large-scale image dataset derived from dynamic particle analysis</li>
+        <li>Converted a materials-science style image stream into archaeologically meaningful categories</li>
+        <li>Achieved 92% accuracy on the high-level classification task</li>
+        <li>Created a model workflow that could be extended to other ancient material studies</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Technologies Used</h2>
+      <div>
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Vision Transformers</span>
+        <span class="tag">Applied AI/ML</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Hugging Face</span>
+        <span class="tag">Scientific Imaging</span>
+      </div>
+    </div>
+
+    <footer>
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Sync theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+  </script>
+</body>
+</html>

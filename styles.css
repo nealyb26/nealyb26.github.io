@@ -68,20 +68,6 @@ header{
   align-items: center;
 }
 
-.main-nav{
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.profile-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  text-align: center;
-}
-
 .profile-header{
   text-align: left;
 }
@@ -98,9 +84,18 @@ header{
 
 .profile-intro{
   display: flex;
-  gap: 32px;
+  gap: 24px;
   margin-bottom: 32px;
-  align-items: flex-start;
+  align-items: stretch;
+  background: var(--card);
+  border: 1px solid #1b2430;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+[data-theme="light"] .profile-intro{
+  border-color: #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -108,21 +103,30 @@ header{
     flex-direction: column;
     align-items: center;
   }
+
+  .intro-text {
+    width: 100%;
+    margin: 0;
+  }
   
   .profile-photo {
-    margin-top: 0 !important;
+    align-self: center;
+    width: min(260px, 100%);
+    height: 240px;
   }
 }
 
 .profile-photo{
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: auto;
+  min-height: 220px;
   border-radius: 16px;
   object-fit: cover;
   object-position: center;
   flex-shrink: 0;
   border: 1px solid #2a3847;
-  margin-top: 50px;
+  margin-top: 0;
+  align-self: stretch;
 }
 
 [data-theme="light"] .profile-photo{
@@ -133,26 +137,21 @@ header{
   flex: 1;
 }
 
+.intro-text > :first-child{
+  margin-top: 0;
+}
+
 .intro-text .section-title{
   margin-top: 0;
 }
 
-.profile-info{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.avatar{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: #222;
-  flex: 0 0 auto;
-  box-shadow: 0 0 0 3px var(--ring);
-  object-fit: cover;
-  object-position: center center;
-  overflow: hidden;
+/* Keep intro photo centered when stacked on narrow screens */
+@media (max-width: 768px) {
+  .profile-intro .profile-photo {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Theme toggle button styles */
@@ -341,11 +340,6 @@ footer{
   margin-top: 50px;
 }
 
-.sr{
-  position:absolute;
-  left:-9999px
-}
-
 /* Write-up page specific styles */
 .back-btn{
   display:inline-flex;
@@ -421,12 +415,6 @@ footer{
   margin-bottom:32px;
 }
 
-.project-meta{
-  color:var(--muted);
-  font-size:16px;
-  margin-bottom:24px;
-}
-
 .project-links{
   display:flex;
   gap:12px;
@@ -449,62 +437,63 @@ footer{
   color:var(--text);
 }
 
-/* Image carousel styles */
-.carousel-container{
-  position:relative;
-  margin-bottom:32px;
-}
-
-.carousel{
-  display:flex;
-  overflow-x:auto;
+/* Gallery styles for project pages */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:16px;
-  padding:16px 0;
-  scroll-snap-type:x mandatory;
+  margin:32px 0;
 }
 
-.carousel::-webkit-scrollbar{
-  height:8px;
-}
-
-.carousel::-webkit-scrollbar-track{
-  background:#1b2430;
-  border-radius:4px;
-}
-
-.carousel::-webkit-scrollbar-thumb{
-  background:#2a3847;
-  border-radius:4px;
-}
-
-.carousel::-webkit-scrollbar-thumb:hover{
-  background:#3a4857;
-}
-
-.carousel-item{
-  flex:0 0 auto;
-  width:300px;
-  height:200px;
-  border-radius:12px;
+.gallery-item{
+  background:var(--card);
+  border:1px solid #1b2430;
+  border-radius:16px;
   overflow:hidden;
-  border:1px solid #2a3847;
-  scroll-snap-align:start;
+  transition: all 0.2s ease;
 }
 
-.carousel-item img{
+[data-theme="light"] .gallery-item{
+  border-color: #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item:hover{
+  border-color:#2a3847;
+  transform:translateY(-2px);
+}
+
+[data-theme="light"] .gallery-item:hover{
+  border-color: #d1d5db;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image{
   width:100%;
-  height:100%;
+  height:auto;
+  display:block;
   object-fit:cover;
 }
 
-.carousel-placeholder{
-  width:100%;
-  height:100%;
-  background:var(--card);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--muted);
+.gallery-caption{
+  padding:12px 16px;
   font-size:14px;
-  border:2px dashed #2a3847;
+  color:var(--muted);
+  line-height:1.4;
+}
+
+/* Single column gallery variant */
+.gallery-single{
+  grid-template-columns:1fr;
+}
+
+/* Two column gallery variant */
+.gallery-two{
+  grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+}
+
+@media (max-width: 768px) {
+  .gallery-two {
+    grid-template-columns:1fr;
+  }
 }

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rocket Flight Software - Neal's Portfolio</title>
+  <meta name="description" content="VADL Flight Software - Finite-state machine for flight detection using IMU sensors" />
+  <link rel="icon" type="image/x-icon" href="img/logo.ico">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="back-btn back-btn-absolute">
+    ← Home
+  </a>
+
+  <div class="project-banner">
+    <img src="img/subscale.jpg" alt="VADL Flight Software banner" class="banner-image">
+    <div class="banner-overlay">
+      <h1 class="banner-title">Rocket Flight Software</h1>
+      <div class="banner-subtitle">Embedded Payload Control System for USLI 2026</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="project-links">
+      <a class="btn" href="#">View Code</a>
+      <a class="btn" href="#">Technical Report</a>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>For the last 2 years I have been a member of the electronics team for the Vanderbilt 
+        Aerospace Design Lab (VADL). Each year, this group competes in the NASA Student Launch Competition.
+        For the 2026 competition, my second year with the team, I worked on the software in the payload electronics system on our rocket, the Endurance. 
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technical Implementation</h2>
+
+      <p>The payload electronics system went through a several iterations, first designed around an STM-32 Nucleo 144 board paired with a VectorNav VN-100 AHRS/IMU providing orientation, X/Y/Z acceleration, and barometric altitude data at 100Hz. A Kalman filter processed the raw sensor data to estimate vehicle orientation and acceleration. Following our PDR design cycle and set of field tests, we switched our MCU to a Teensy 4.1 for its improved performance and ease of integration.</p>
+      
+      <p> My role was to build out the flight logic state machine with conditions driven by filtered sensor data using configurable thresholds and timing windows to detect state transitions. The flight state detection was driven by the barometric altitude data. Flight states were used to autonomously command events of the launch system throughout the mission, such as payload release, parachute detachment, and soil collection.</p>
+        
+      <p>Debouncing measures were implemented to reduce the effect of sensor noise. Flight states required chronological detection, meaning that landing detection could not be detected independently before ascent, apogee, and descent had occured. I also developed a system for reorienting payload post-landing by using IMU values, and pulsing the payload motor until the measured gravitational vector aligned with the vector expected in a bottom-dead-center configuration.</p>
+      
+      <p> Risk assessment was at the core of our design considerations for the program. Safety measures, such as a screw terminal reset switch, and an status LED were integrated. Testing was done to remain compliant with NASA issued requirement and internally derived requirement. For each individual component and subsystem, we completed rigorous bench testing in-lab, including hardware in the loop using piped historical flight data. Physical tests, such as elevator and drone-drop tests were performed before our fully integrated flight tests.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Key Accomplishments</h2>
+      <ul class="list">
+        <li>Real-time flight phase detection with sub-100ms latency</li>
+        <li>Robust finite-state machine with hysteresis mitigation</li>
+        <li>Kalman filtering for sensor fusion and </li>
+        <li>Configurable thresholds for different vehicle types</li>
+        <li>Testbench Hardware in the Loop Testing</li>
+        <li>Low power consumption for extended flight operations</li>
+        <li>100 Hz SD Card Data Logging</li>
+      </ul>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img class="gallery-image" src="img/flight2_orientation_viz.gif" alt="VADL rocket on launch pad" loading="lazy">
+        <div class="gallery-caption">Animation of Subscale Flight</div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-image" src="img/PES.jpg" alt="Payload electronics system" loading="lazy">
+        <div class="gallery-caption">Payload Electronics System (PES) Diagram</div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Applications</h2>
+      <p>The flight state detection system has applications in model rocketry for automated parachute deployment, small UAV flight monitoring, and educational aerospace projects. The modular design allows easy integration into existing flight systems and adaptation for different vehicle characteristics.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technologies Used</h2>
+      <div>
+        <span class="tag">C/C++</span>
+        <span class="tag">Teensy</span>
+        <span class="tag">SPI/UART Communication</span>
+        <span class="tag">Kalman Filtering</span>
+        <span class="tag">Finite State Machines</span>
+        <span class="tag">Unit Testing</span>
+        <span class="tag">Embedded Systems</span>
+        <span class="tag">PlatformIO</span>
+      </div>
+    </div>
+
+    <footer>
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Sync theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+    
+    // Auto-play GIFs when in view
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const img = entry.target;
+        if (entry.isIntersecting) {
+          // GIF will auto-play when in view
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all gallery images
+    document.querySelectorAll('.gallery-image').forEach(img => {
+      observer.observe(img);
+    });
+  </script>
+</body>
+</html>
