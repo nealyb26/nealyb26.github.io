@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folding Table - Neal's Portfolio</title>
+  <meta name="description" content="Stowable hinging tray table for an armchair" />
+  <link rel="icon" type="image/x-icon" href="img/logo.ico">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="back-btn back-btn-absolute" aria-label="Back to portfolio home">
+    <span class="back-btn-icon" aria-hidden="true"></span>
+    ←
+  </a>
+
+  <div class="project-banner">
+    <img src="img/table.JPG" alt="folding table project banner" class="banner-image">
+    <div class="banner-overlay">
+      <h1 class="banner-title">Folding Table</h1>
+      <div class="banner-subtitle">Stowable tray table for armchair (2025)</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="project-links">
+      <a class="btn" href="#">Project Write-up</a>
+      <a class="btn" href="#">Video Demo</a>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>This table was just one of those additions I wanted to make to my room, especially during the long summer days. I had this armchair in a corner of my room, that, while super comfy, had not place to put things down and do work. To make better use of the chair, I decided to take a page from airplane seats and make a tray table that could be folded up and stowed away to allow for easy access. Given this requirement, this required a custom design and some woodworking, which I had never really done.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Construction</h2>
+      <p>The main table surface was made from a sheet of plywood I found lying around the house. The hinges were 3 inch door hinges sourced from Lowes. Various block pieces comprising the clamping support structures were also fashioned using the plywood sheets. All of the cuts were done using handsaws, leading to a lot of uneven edges that I would hit with sanding paper. Some pieces, such as the support leg, were affixed using wood glue, while other pieces, such as the hinges were affixed using countersunk screws.</p>
+      
+      <p>Before applying lacquer and stain, I would sand the surface of the table, making sure to lightly draw pencil lines and sand with the grain, and removing residual dust with a cloth. After the finish was looking good enough, I applied multiple coats of a MinWax water based stain + polyurethane finish. The finish wasn't as dark as I expected, but it still turned out a lot better than the unfinished original wood.</p>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img class="gallery-image" src="img/table_drawing.JPG" alt="table drawing" loading="lazy">
+        <div class="gallery-caption">Initial Design Sketches for the Folding Mechanism</div>
+      </div>
+    </div>
+
+    <footer>
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Sync theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+  </script>
+</body>
+</html>

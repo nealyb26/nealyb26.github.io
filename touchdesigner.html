@@ -17,8 +17,8 @@
   <div class="project-banner">
     <img src="img/installation.png" alt="TouchDesigner Flow Viz project banner" class="banner-image">
     <div class="banner-overlay">
-      <h1 class="banner-title">TouchDesigner Flow Viz</h1>
-      <div class="banner-subtitle">Interactive Airflow Visualization Installation</div>
+      <h1 class="banner-title">TouchDesigner Flow Visualization</h1>
+      <div class="banner-subtitle">An Interactive Art Installation</div>
     </div>
   </div>
 
@@ -30,14 +30,14 @@
 
     <div class="content-section">
       <h2>Overview</h2>
-      <p>TouchDesigner Flow Viz is an interactive installation that creates real-time airflow visualizations around human silhouettes. Using computer vision and projector mapping, the system generates beautiful 2D flow lines that respond dynamically to people's movements and positions.</p>
+      <p>This project is an interactive installation that creates real-time airflow visualizations around the silhouette of an object placed in the flow field. Using a depth camera system and projector mapping, the system will draw some beautiful 2d flow lines that respond dynamically to people's movements and positions.</p>
       
-      <p>The project explores the intersection of computational fluid dynamics simulation and interactive art, creating an immersive experience where participants can see how their presence affects virtual airflow patterns projected onto the ground around them.</p>
+      <p>I've always thought that aerodynamics testing yields some super striking imagery, so I wanted this to be a mix of that and an interactive art display. As of right now, the project is somewhat on hold, but I am looking to pick it back up over the summer</p>
     </div>
 
     <div class="content-section">
       <h2>Technical Implementation</h2>
-      <p>The system uses OpenCV for real-time computer vision processing to detect and track human silhouettes from overhead camera feeds. Contour detection algorithms identify the boundaries of people in the space, which are then used as obstacles in a simplified fluid dynamics simulation.</p>
+      <p>The system uses a depth camera for the real-time boundary estimation of objects. Contour detection algorithms identify the boundaries of people in the space, which are then used as obstacles in a simplified fluid dynamics simulation.</p>
       
       <p>TouchDesigner serves as the primary platform for visual generation and projection mapping. The software receives silhouette data from the Python vision processing pipeline and generates smooth, flowing particle systems that simulate air currents deflecting around detected obstacles.</p>
       
@@ -68,11 +68,11 @@
       <h2>Technologies Used</h2>
       <div>
         <span class="tag">TouchDesigner</span>
-        <span class="tag">OpenCV</span>
+        <span class="tag">Depth Camera</span>
         <span class="tag">Python</span>
         <span class="tag">Computer Vision</span>
         <span class="tag">Projector Mapping</span>
-        <span class="tag">Particle Systems</span>
+        <span class="tag">Particle FX</span>
         <span class="tag">Real-time Processing</span>
         <span class="tag">Interactive Installation</span>
       </div>

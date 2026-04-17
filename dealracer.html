@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DealRacer - Neal's Portfolio</title>
+  <meta name="description" content="DealRacer project - Localized deal finding platform made for VandyHacks-XI" />
+  <link rel="icon" type="image/x-icon" href="img/logo.ico">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <a href="index.html" class="back-btn back-btn-absolute" aria-label="Back to portfolio home">
+    <span class="back-btn-icon" aria-hidden="true"></span>
+    ←
+  </a>
+
+  <div class="project-banner">
+    <img src="img/dealracer_banner.png" alt="Overflight project banner" class="banner-image">
+    <div class="banner-overlay">
+      <h1 class="banner-title">DealRacer</h1>
+      <div class="banner-subtitle">Localized Deal Finding Platform (VandyHacks Sept, 2024)</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="project-links">
+      <a class="btn" href="https://github.com/nealyb26/overflight" target="_blank" rel="noopener noreferrer">View Code</a>
+      <a class="btn" href="https://overflight-container-681855981049.us-central1.run.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+    </div>
+
+    <div class="content-section">
+      <h2>Overview</h2>
+      <p>DealRacer was a weekend hackathon project built around a simple idea: make it easier for people to share and discover local money‑saving deals. Our team wanted to tackle the broader challenge of financial inclusion by lowering the barrier to practical, everyday budgeting knowledge. I focused on the backend, bringing our rough concept into a working web app where users could post deals, vote on them, and search by relevance or proximity.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Technical Implementation</h2>
+      <p>On the backend, I built out the core Django models and views that powered posting, voting, and filtering. I set up endpoints for creating and retrieving deals, implemented sorting logic for score and recency, and handled user interactions like commenting. The frontend team used Bootstrap and vanilla JS, so I also shaped the API responses to be lightweight and easy to consume.</p>
+      
+      <p>A lot of the work involved keeping our codebase coherent as we all learned web development on the fly. This was the classic hackathon troubles of resolving merge conflicts, aligning on conventions, and making sure our features didn’t break each other while racing the clock.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Key Aspects</h2>
+      <ul class="list">
+        <li>Designed and implemented Django models and routes for posts, comments, and voting</li>
+        <li>Built filtering and search logic for distance, score, and time posted</li>
+        <li>Helped debug rapid‑fire changes in a fast hackathon environment</li>
+        <li>Delivered a functional community‑driven deal‑sharing platform in under 24 hours</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Technologies Used</h2>
+      <div>
+        <span class="tag">Django</span>
+        <span class="tag">Python</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Bootstrap</span>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img class="gallery-image" src="img/vandyhacks.jpg" alt="SONOS TID response data used for AIMC analysis" loading="lazy">
+        <div class="gallery-caption">Wrapping up at 3:08 AM 🫠</div>
+      </div>
+      <div class="gallery-item">
+        <img class="gallery-image" src="img/vandyhacksdemo.jpg" alt="Analog in-memory computing workflow diagram" loading="lazy">
+        <div class="gallery-caption">Demoing our project!</div>
+      </div>
+    </div>
+
+    <footer>
+      <span id="y"></span> Neal Bagai • Built on GitHub Pages
+    </footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    
+    // Sync theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+  </script>
+</body>
+</html>

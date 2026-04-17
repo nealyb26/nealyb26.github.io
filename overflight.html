@@ -32,14 +32,14 @@
       <h2>Overview</h2>
       <p>Overflight is a real-time flight tracking application that visualizes live aircraft data in an interactive 3D environment. Built with modern web technologies, it combines a Flask backend for data processing with a Three.js frontend for immersive visualization.</p>
       
-      <p>The application fetches live flight data from aviation APIs and renders aircraft positions, flight paths, and airport information in a globe-based 3D interface. Users can explore flights worldwide, view detailed flight information, and track aircraft movements in real-time.</p>
+      <p>The application fetches live flight data from the FlightRadar24 API and renders aircraft positions, flight paths, and airport information in a globe-based 3D interface. Users can explore flights worldwide, view detailed flight information, and track aircraft movements in real-time.</p>
     </div>
 
     <div class="content-section">
       <h2>Technical Implementation</h2>
       <p>The backend is built with Flask and handles API integrations with flight data providers, data processing, and serving the frontend application. The data pipeline processes thousands of flight updates per minute, filtering and optimizing the data for efficient frontend consumption.</p>
       
-      <p>The frontend leverages Vite for fast development builds and Three.js for WebGL-based 3D rendering. Aircraft are represented as 3D models positioned accurately on a textured Earth sphere, with smooth interpolation between position updates to create fluid movement animations.</p>
+      <p>The frontend leverages Vite for fast development builds and Three.js for WebGL-based 3D rendering. Aircraft are represented as 3D models positioned over a fetched map tile from OpenStreetMap, with smooth interpolation between position updates to create fluid movement animations.</p>
       
       <p>Deployment is handled through Google Cloud Run, providing automatic scaling and efficient resource utilization. The containerized application can handle traffic spikes during peak flight hours while maintaining low latency for real-time updates.</p>
     </div>

@@ -38,26 +38,26 @@
       <h2>Technical Implementation</h2>
       <p>The workflow connects experimentally characterized SONOS radiation behavior to algorithm-level inference simulations. Published measurements characterize the TID response of 128 distinct conductance states (7 bits per cell) on a 40 nm SONOS array irradiated with Co-60 gamma rays up to 1.5 Mrad(Si), including post-irradiation annealing behavior. These measurements show strongly state-dependent shifts and reveal that the operating regime matters: weights encoded in weak inversion are substantially more disruptive than weights encoded in deep subthreshold or strong inversion.</p>
       
-      <p>I translated device-level TID response into inference-time weight perturbations using CrossSim Inference, a Python-based simulator for CNN-class inference. CrossSim models how a trained network is quantized, decomposed into analog MVM cores, and digitized with finite-resolution ADCs. It applies per-device programming error distributions, optional drift models, cycle-to-cycle read noise, ADC quantization, and array non-idealities (for example parasitic resistance via an internal circuit solver). ADC ranges can be calibrated per layer (and per bit slice) by collecting statistics on ADC inputs over a calibration dataset, which is critical because saturation and underutilization both translate to accuracy loss.</p>
+      <p>I translated device-level TID response into inference-time weight perturbations using the CrossSim program, a Python-based simulator created by Sandia National Labs for CNN-class inference on AIMC devices. CrossSim models how a trained network is quantized, decomposed into analog MVM cores, and then re-digitized with finite-resolution ADCs. It applies per-device programming error distributions, optional drift models, cycle-to-cycle read noise, ADC quantization, and array non-idealities (for example parasitic resistance via an internal circuit solver). ADC ranges can be calibrated per layer (and per bit slice) by collecting statistics on ADC inputs over a calibration dataset, which is critical because saturation and underutilization both translate to accuracy loss.</p>
       
-      <p>On top of the baseline analog error model, we inject TID as a state-dependent perturbation to each stored weight: a mean current shift plus an increase in random variability, interpolated across dose points when needed. Inference is then evaluated on standard image benchmarks (for example CIFAR-10 with ResNet-class models) to quantify how quickly accuracy degrades versus dose and which mapping choices delay that degradation the most.</p>
+      <p>On top of the baseline analog error model, I injected TID as a state-dependent perturbation to each stored weight: a mean current shift plus an increase in random variability, interpolated across dose points when needed. Inference is then evaluated on standard image benchmarks (for example CIFAR-10 with ResNet-class models) to quantify how quickly accuracy degrades versus dose and which mapping choices delay that degradation the most.</p>
     </div>
 
     <div class="content-section">
       <h2>Key Aspects</h2>
       <ul class="list">
-        <li>Device-to-algorithm pipeline: measured SONOS TID response mapped into per-cell weight perturbations during inference simulation</li>
+        <li>Device-to-algorithm pipeline: measured SONOS TID response mapped into per-cell weight perturbations during inference simulation.</li>
         <li>State-dependent modeling: captures both mean shift and variance growth as a function of stored analog level</li>
-        <li>System-level levers tested: weight mapping strategy, negative-weight handling, ADC resolution and per-layer range calibration, and bit slicing (Nslices)</li>
-        <li>Mitigation study: compares “high density” mappings (many bits per cell) versus resilient mappings (fewer bits per cell / more slices)</li>
-        <li>Benchmarked end-to-end: evaluates inference accuracy degradation versus dose on CNN workloads rather than relying on device metrics alone</li>
-        <li>Operational strategy: periodic refresh considered as a mission-level reset mechanism to counter both thermal drift and cumulative TID effects</li>
+        <li>System-level levers tested: weight mapping strategy, negative-weight handling, ADC resolution and per-layer range calibration, and bit slicing (Nslices). </li>
+        <li>Mitigation study: compares “high density” mappings (many bits per cell) versus resilient mappings (fewer bits per cell / more slices). </li>
+        <li>Benchmarked end-to-end: evaluates inference accuracy degradation versus dose on CNN workloads rather than relying on device metrics alone. </li>
+        <li>Operational strategy: periodic refresh considered as a mission-level reset mechanism to counter both thermal drift and cumulative TID effects. </li>
       </ul>
     </div>
 
     <div class="content-section">
-      <h2>Creative Process</h2>
-      <p>The project started from a systems gap: radiation test data often stops at threshold-voltage shift plots, while machine learning deployment decisions need an accuracy-versus-dose curve under realistic accelerator constraints. The “creative” step was treating the mapping from digital weights to analog states as a first-class design variable, rather than a fixed implementation detail, then using a simulator that is explicit about where analog ends and digital begins.</p>
+      <h2>Exploratory Process</h2>
+      <p>The project started from a systems gap: radiation test data often stops at threshold-voltage shift plots, while machine learning deployment decisions need an accuracy-versus-dose curve under realistic accelerator constraints. The novel step was treating the mapping from digital weights to analog states as a first-class design variable, rather than a fixed implementation detail, then using a simulator that is explicit about where analog ends and digital begins.</p>
       
       <p>Two insights guided the iteration. First, TID sensitivity is not uniform across the conductance window, so using all available levels can be worse than deliberately avoiding sensitive regions. Second, mitigation is rarely free: bit slicing and conservative mappings improve resilience but increase area/energy roughly in proportion to the number of slices, so the right answer depends on the mission environment and the acceptable efficiency penalty. The final deliverable is a structured way to compare those tradeoffs quantitatively using the same trained model and the same device characterization inputs.</p>
     </div>
@@ -65,11 +65,11 @@
     <div class="gallery">
       <div class="gallery-item">
         <img class="gallery-image" src="img/showcase.JPG" alt="SONOS TID response data used for AIMC analysis" loading="lazy">
-        <div class="gallery-caption">Presenting findings at November Vanderbilt Student Research Showcase</div>
+        <div class="gallery-caption">Presenting findings at a Vanderbilt Student Research Showcase in Nov, 2025</div>
       </div>
       <div class="gallery-item">
-        <img class="gallery-image" src="img/aimc.png" alt="Analog in-memory computing workflow diagram" loading="lazy">
-        <div class="gallery-caption">AIMC workflow connecting device-level perturbations to inference-time accuracy loss.</div>
+        <img class="gallery-image" src="img/aimc_block_diagram.png" alt="Analog in-memory computing workflow diagram" loading="lazy">
+        <div class="gallery-caption">Adapted CrossSim system diagram integrating TID effects into inference-time accuracy loss.</div>
       </div>
     </div>
 
